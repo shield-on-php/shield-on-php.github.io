@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+dir=$(pwd)
+
 # Move files from git to svn repository.
 gitbook build
 
 
-cp -a ./_book/* ./github_page
+cp -a ${dir}/_book/* ${dir}/github_page
 
 cd github_page
 git add .
