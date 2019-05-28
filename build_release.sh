@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
 
-SCRIPT=$(readlink -f "$0")
-# Absolute path this script is in, thus /home/user/bin
-dir=$(dirname "$SCRIPT")
 
-echo ${dir};
-
-# Move files from git to svn repository.
 gitbook build
 
+path1="/data/gitbook/shieldon/_book/*"
+path2="/data/gitbook/shieldon_github_page"
+echo "${path1}"
+echo "${path2}"
+cp -R ${path1} ${path2}
 
-cp -R ${dir}/_book/* ${dir}/github_page/
-
-cd github_page
+cd ${path2}
 git add .
 git commit -m "update website"
 git push origin master
-cd ../
+

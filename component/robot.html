@@ -590,6 +590,137 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="robot">Robot</h1>
+<h2 id="shieldoncomponentrobot"><code>Shieldon\Component\Robot</code></h2>
+<ul>
+<li><em>return</em> self</li>
+</ul>
+<pre><code class="lang-php">$robot = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$shieldon-&gt;setComponent($robot);
+</code></pre>
+<h3 id="setstrict">setStrict</h3>
+<ul>
+<li><em>param</em> boolean <code>$bool</code> Set true to enble strict mode, false to disable it overwise.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$robot-&gt;setStrict(<span class="hljs-keyword">true</span>);
+</code></pre>
+<h3 id="isallowed">isAllowed</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isAllowed();
+</code></pre>
+<h3 id="isrobot">isRobot</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isRobot();
+</code></pre>
+<h3 id="isgoogle">isGoogle</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isGoogle();
+</code></pre>
+<h3 id="isyahoo">isYahoo</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isYahoo();
+</code></pre>
+<h3 id="issearchbot">isSearchbot</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isSearchbot();
+</code></pre>
+<h3 id="setuseragentstring">setUserAgent($string)</h3>
+<ul>
+<li><em>param</em> string <code>$string</code> User-agent string.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$robot-&gt;setUserAgent(<span class="hljs-string">&apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0&apos;</span>);
+</code></pre>
+<h3 id="getuseragent">getUserAgent</h3>
+<ul>
+<li><em>return</em> string</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;getUserAgent();
+
+<span class="hljs-comment">// Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0</span>
+</code></pre>
+<h3 id="setrdnslist">setRdnsList</h3>
+<ul>
+<li><em>param</em> array <code>$data</code> Aarry collects RDNS (IP&apos;s resolved hostname) strings.</li>
+<li><em>param</em> string <code>$type</code> type [allow, deny, searchbot]</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$list = [
+    <span class="hljs-string">&apos;.googlebot.com&apos;</span>,
+    <span class="hljs-string">&apos;.google.com&apos;</span>,
+    <span class="hljs-string">&apos;.live.com&apos;</span>,   <span class="hljs-comment">// search.live.com</span>
+    <span class="hljs-string">&apos;.msn.com&apos;</span>,    <span class="hljs-comment">// msnbot.msn.com, search.msn.com</span>
+    <span class="hljs-string">&apos;.ask.com&apos;</span>,
+    <span class="hljs-string">&apos;.bing.com&apos;</span>,
+    <span class="hljs-string">&apos;.inktomisearch.com&apos;</span>,
+    <span class="hljs-string">&apos;.yahoo.com&apos;</span>,
+    <span class="hljs-string">&apos;.yahoo.net&apos;</span>,  <span class="hljs-comment">// crawl.yahoo.net</span>
+    <span class="hljs-string">&apos;.yandex.com&apos;</span>,
+    <span class="hljs-string">&apos;.yandex.ru&apos;</span>,
+];
+
+$robot-&gt;setRdnsList($list, <span class="hljs-string">&apos;allow&apos;</span>);
+</code></pre>
+<h3 id="getrdnslist">getRdnsList</h3>
+<ul>
+<li><em>param</em> string <code>$type</code> type [allow, deny, searchbot]</li>
+<li><em>return</em> array</li>
+</ul>
+<pre><code class="lang-php">$list = $robot-&gt;getRdnsList<span class="hljs-string">&apos;allow&apos;</span>);
+
+<span class="hljs-comment">/*
+[
+    &apos;.googlebot.com&apos;,
+    &apos;.google.com&apos;,
+    &apos;.live.com&apos;,
+    &apos;.msn.com&apos;,
+    &apos;.ask.com&apos;,
+    &apos;.bing.com&apos;,
+    &apos;.inktomisearch.com&apos;,
+    &apos;.yahoo.com&apos;,
+    &apos;.yahoo.net&apos;,
+    &apos;.yandex.com&apos;,
+    &apos;.yandex.ru&apos;,
+];
+*/</span>
+</code></pre>
+<h3 id="setagentlist">setAgentList</h3>
+<ul>
+<li><em>param</em> array <code>$data</code> Aarry collects user-agent strings.</li>
+<li><em>param</em> string <code>$type</code> type [allow, deny, searchbot]</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$list = [
+    <span class="hljs-string">&apos;archive.org_bot&apos;</span>,
+    <span class="hljs-string">&apos;AhrefsBot&apos;</span>,
+];
+
+$robot-&gt;setRdnsList($list, <span class="hljs-string">&apos;deny&apos;</span>);
+</code></pre>
+<h3 id="getagentlist">getAgentList</h3>
+<ul>
+<li><em>param</em> string <code>$type</code> type [allow, deny, searchbot]</li>
+<li><em>return</em> array</li>
+</ul>
+<pre><code class="lang-php">$list = $robot-&gt;getAgentList(<span class="hljs-string">&apos;deny&apos;</span>);
+
+<span class="hljs-comment">/*
+[
+    &apos;archive.org_bot&apos;,
+    &apos;AhrefsBot&apos;,
+];
+*/</span>
+</code></pre>
 
                                 
                                 </section>
@@ -633,7 +764,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Robot","level":"1.4.2","depth":2,"next":{"title":"Driver","level":"1.5","depth":1,"path":"driver/index.md","ref":"driver/index.md","articles":[{"title":"MySQL","level":"1.5.1","depth":2,"path":"driver/mysql.md","ref":"driver/mysql.md","articles":[]},{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},{"title":"Redis","level":"1.5.3","depth":2,"path":"driver/redis.md","ref":"driver/redis.md","articles":[]},{"title":"File","level":"1.5.4","depth":2,"path":"driver/file.md","ref":"driver/file.md","articles":[]}]},"previous":{"title":"IP","level":"1.4.1","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["layout","toggle-chapters","github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"component/robot.md","mtime":"2019-05-28T02:52:59.374Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:39:08.646Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Robot","level":"1.4.2","depth":2,"next":{"title":"Driver","level":"1.5","depth":1,"path":"driver/index.md","ref":"driver/index.md","articles":[{"title":"MySQL","level":"1.5.1","depth":2,"path":"driver/mysql.md","ref":"driver/mysql.md","articles":[]},{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},{"title":"Redis","level":"1.5.3","depth":2,"path":"driver/redis.md","ref":"driver/redis.md","articles":[]},{"title":"File","level":"1.5.4","depth":2,"path":"driver/file.md","ref":"driver/file.md","articles":[]}]},"previous":{"title":"IP","level":"1.4.1","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["layout","toggle-chapters","github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"component/robot.md","mtime":"2019-05-28T08:44:41.047Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T08:45:24.577Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

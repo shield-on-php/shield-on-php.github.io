@@ -590,6 +590,98 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="ip">IP</h1>
+<h2 id="shieldoncomponentip"><code>Shieldon\Component\Ip</code></h2>
+<ul>
+<li><em>return</em> self</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$shieldon-&gt;setComponent($ip);
+</code></pre>
+<h3 id="inrange">inRange</h3>
+<ul>
+<li><em>param</em> string <code>$ip</code> IP to check in IPV4 and IPV6 format</li>
+<li><em>param</em> mixed <code>$range</code> IP/CIDR netmask</li>
+<li><em>return</em> boolean</li>
+</ul>
+<pre><code class="lang-php">$result = $ip-&gt;inRange(<span class="hljs-string">&apos;123.22.33.44&apos;</span>, <span class="hljs-string">&apos;123.22.33.1/24&apos;</span>);
+
+<span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="setallowedlist">setAllowedList</h3>
+<ul>
+<li><em>param</em> array <code>$ips</code> Ip array.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+
+$allowedIps = [
+    <span class="hljs-string">&apos;123.22.33.44&apos;</span>,
+    <span class="hljs-string">&apos;88.22.33.55&apos;</span>,
+];
+
+$ip-&gt;setAllowedList($allowedIps);
+$shieldon-&gt;setComponent($ip);
+</code></pre>
+<h3 id="setallowedip">setAllowedIp</h3>
+<ul>
+<li><em>param</em> string <code>$ip</code> Single Ip address</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$ip-&gt;setAllowedIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
+$shieldon-&gt;setComponent($ip);
+</code></pre>
+<h3 id="getallowedlist">getAllowedList</h3>
+<ul>
+<li><em>return</em> array</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$list = $ip-&gt;getAllowedList();
+
+<span class="hljs-comment">// [&apos;123.22.33.44&apos;, &apos;123.22.33.43&apos;, &apos;xxx.xxx.xxx.xxx&apos;]</span>
+</code></pre>
+<h3 id="setdeniedlist">setDeniedList</h3>
+<ul>
+<li><em>param</em> array <code>$ips</code> IP array.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+
+$deniedIps = [
+    <span class="hljs-string">&apos;123.22.33.44&apos;</span>,
+    <span class="hljs-string">&apos;88.22.33.55&apos;</span>,
+];
+
+$ip-&gt;setDenieddList($deniedIps);
+$shieldon-&gt;setComponent($ip);
+</code></pre>
+<h3 id="setdeniedip">setDeniedIp</h3>
+<ul>
+<li><em>param</em> string <code>$ip</code> Single Ip address</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$ip-&gt;setDeniedIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
+$shieldon-&gt;setComponent($ip);
+</code></pre>
+<h3 id="getdeniedlist">getDeniedList</h3>
+<ul>
+<li><em>return</em> array</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$list = $ip-&gt;getDenieddList();
+
+<span class="hljs-comment">// [&apos;123.22.33.44&apos;, &apos;123.22.33.43&apos;, &apos;xxx.xxx.xxx.xxx&apos;]</span>
+</code></pre>
+<h3 id="removeip">removeIp</h3>
+<ul>
+<li><em>param</em> string <code>$ip</code> Single Ip address</li>
+<li><em>param</em> string <code>$type</code> &apos;allow&apos;, &apos;deny&apos;</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
+$ip-&gt;removeIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
+</code></pre>
 
                                 
                                 </section>
@@ -633,7 +725,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IP","level":"1.4.1","depth":2,"next":{"title":"Robot","level":"1.4.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]},"previous":{"title":"Component","level":"1.4","depth":1,"path":"component/index.md","ref":"component/index.md","articles":[{"title":"IP","level":"1.4.1","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},{"title":"Robot","level":"1.4.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["layout","toggle-chapters","github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"component/ip.md","mtime":"2019-05-28T02:52:48.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:39:08.646Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IP","level":"1.4.1","depth":2,"next":{"title":"Robot","level":"1.4.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]},"previous":{"title":"Component","level":"1.4","depth":1,"path":"component/index.md","ref":"component/index.md","articles":[{"title":"IP","level":"1.4.1","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},{"title":"Robot","level":"1.4.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["layout","toggle-chapters","github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"component/ip.md","mtime":"2019-05-28T08:25:02.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T08:45:24.577Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
