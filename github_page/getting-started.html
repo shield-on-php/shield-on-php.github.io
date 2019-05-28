@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Shieldon · GitBook</title>
+        <title>Getting Started · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,6 +60,8 @@
     <link rel="next" href="getting-started.html" />
     
     
+    <link rel="prev" href="./" />
+    
 
     </head>
     <body>
@@ -87,7 +89,7 @@
   
   
 
-<li class="chapter active" data-level="1.1" data-path="./">
+<li class="chapter " data-level="1.1" data-path="./">
   
   <a href="./">
     
@@ -100,7 +102,7 @@
     
 </li>
 
-<li class="chapter " data-level="1.2" data-path="getting-started.html">
+<li class="chapter active" data-level="1.2" data-path="getting-started.html">
   
   <a href="getting-started.html">
     
@@ -341,7 +343,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Shieldon</a>
+        <a href="." >Getting Started</a>
     </h1>
 </div>
 
@@ -356,28 +358,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="shieldon">Shieldon</h1>
-<p><a href="https://travis-ci.org/terrylinooo/shieldon" target="_blank"><img src="https://travis-ci.org/terrylinooo/shieldon.svg?branch=master" alt="Build Status"></a></p>
-<p>Shieldon, a PHP library that provides anti-scraping, XSS filitering and traffic controll for your web application. As if you are using a shield on your web applicaion to fight against bad-behavior bots, crawlers or vulnerability scanning and so on.</p>
-<p><strong>Project URL</strong></p>
-<ul>
-<li><a href="https://github.com/terrylinooo/shieldon" target="_blank">https://github.com/terrylinooo/shieldon</a></li>
-</ul>
-<p><code>version: 1.0.0.alpha</code></p>
-<p>Don&apos;t use it until first release come.</p>
-<h2 id="screenshot">Screenshot</h2>
-<p>When the users or robots are trying to view many your web pages at a short period of time, they will temporarily get banned. To get unbanned by solving Catpcha.</p>
-<p><img src="https://i.imgur.com/FfG8fTF.png" alt=""></p>
-<p>When an user has reached the online session limit. You can set the online session limit by using <code>limitSession</code> API.
-<img src="https://i.imgur.com/1HpMO5Q.png" alt=""></p>
-<p>When an user has been permanently banned.</p>
-<p><img src="https://i.imgur.com/7PdjkKV.png" alt=""></p>
-<h2 id="license">License</h2>
-<p>MIT</p>
-<h2 id="author">Author</h2>
-<ul>
-<li><a href="https://terryl.in" target="_blank">Terry Lin</a></li>
-</ul>
+                                <h1 id="get-started">Get started</h1>
+<p>Shieldon requires at least <code>PHP 7.1</code> to run.</p>
+<h2 id="install">Install</h2>
+<p>Use PHP Composer:</p>
+<pre><code class="lang-shell">composer require terrylinooo/shieldon
+</code></pre>
+<p>Or, download it and include the Shieldon autoloader.</p>
+<pre><code class="lang-php"><span class="hljs-keyword">require</span> <span class="hljs-string">&apos;Shieldon/src/autoload.php&apos;</span>;
+</code></pre>
+<h2 id="how-to-use">How to use</h2>
+<p>Here is a full example let you know how Shieldon works.</p>
+<pre><code class="lang-php">$shieldon = <span class="hljs-keyword">new</span> \Shieldon\Shieldon();
+
+<span class="hljs-comment">// Use SQLite as the data driver.</span>
+$dbLocation = APPPATH . <span class="hljs-string">&apos;cache/shieldon.sqlite3&apos;</span>;
+$pdoInstance = <span class="hljs-keyword">new</span> \PDO(<span class="hljs-string">&apos;sqlite:&apos;</span> . $dbLocation);
+$shieldon-&gt;setDriver(<span class="hljs-keyword">new</span> \Shieldon\Driver\SqliteDriver($pdoInstance));
+
+<span class="hljs-comment">// Set core components.</span>
+$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\Ip());
+<span class="hljs-comment">// This compoent will only allow popular search engline.</span>
+<span class="hljs-comment">// Other bots will go into the checking process.</span>
+$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\Robot());
+
+<span class="hljs-comment">// You can ignore this setting if you only use one Shieldon on your web application. This is for multiple instances.</span>
+$shieldon-&gt;setChannel(<span class="hljs-string">&apos;web_project&apos;</span>);
+
+<span class="hljs-comment">// Only allow 10 sessions to view current page.</span>
+<span class="hljs-comment">// The defailt expire time is 300 seconds.</span>
+$shieldon-&gt;limitSession(<span class="hljs-number">10</span>);
+
+<span class="hljs-comment">// Set a Captcha servie. For example: Google recaptcha.</span>
+$shieldon-&gt;setCaptcha(<span class="hljs-keyword">new</span> \Shieldon\Captcha\Recaptcha([
+    <span class="hljs-string">&apos;key&apos;</span> =&gt; <span class="hljs-string">&apos;6LfkOaUUAAAAAH-AlTz3hRQ25SK8kZKb2hDRSwz9&apos;</span>,
+    <span class="hljs-string">&apos;secret&apos;</span> =&gt; <span class="hljs-string">&apos;6LfkOaUUAAAAAJddZ6k-1j4hZC1rOqYZ9gLm0WQh&apos;</span>,
+]));
+
+<span class="hljs-comment">// Start protecting your website!</span>
+
+$result = $shieldon-&gt;run();
+
+
+<span class="hljs-keyword">if</span> ($result !== $shieldon::RESPONSE_ALLOW) {
+    <span class="hljs-keyword">if</span> ($shieldon-&gt;captchaResponse()) {
+
+        <span class="hljs-comment">// Unban current session.</span>
+        $shieldon-&gt;unban();
+    }
+    <span class="hljs-comment">// Output the result page with HTTP status code 200.</span>
+    $shieldon-&gt;output(<span class="hljs-number">200</span>);
+}
+</code></pre>
 
                                 
                                 </section>
@@ -405,8 +437,12 @@
 
             
                 
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Shieldon">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Getting Started">
+                
+                <a href="getting-started.html#installation" class="navigation navigation-next " aria-label="Next page: Installation">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -417,7 +453,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shieldon","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"getting-started.md","ref":"getting-started.md","articles":[{"title":"Installation","level":"1.2.1","depth":2,"anchor":"#installation","path":"getting-started.md","ref":"getting-started.md#installation","articles":[]},{"title":"How to Use","level":"1.2.2","depth":2,"anchor":"#how-to-use","path":"getting-started.md","ref":"getting-started.md#how-to-use","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-28T04:41:19.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T05:09:07.179Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.2","depth":1,"next":{"title":"Installation","level":"1.2.1","depth":2,"anchor":"#installation","path":"getting-started.md","ref":"getting-started.md#installation","articles":[]},"previous":{"title":"Shieldon","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"getting-started.md","mtime":"2019-05-27T09:51:04.441Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T03:20:09.848Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -425,10 +461,6 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MySQL · GitBook</title>
+        <title>Image Captcha · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sqlite.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="recaptcha.html" />
     
 
     </head>
@@ -205,9 +203,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.5" data-path="./">
+<li class="chapter " data-level="1.5" data-path="../driver/">
   
-  <a href="./">
+  <a href="../driver/">
     
                     
                     Driver
@@ -219,9 +217,9 @@
     <ul class="articles">
       
 
-<li class="chapter active" data-level="1.5.1" data-path="mysql.html">
+<li class="chapter " data-level="1.5.1" data-path="../driver/mysql.html">
   
-  <a href="mysql.html">
+  <a href="../driver/mysql.html">
     
                     
                     MySQL
@@ -232,9 +230,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.5.2" data-path="sqlite.html">
+<li class="chapter " data-level="1.5.2" data-path="../driver/sqlite.html">
   
-  <a href="sqlite.html">
+  <a href="../driver/sqlite.html">
     
                     
                     SQLite
@@ -245,9 +243,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.5.3" data-path="redis.html">
+<li class="chapter " data-level="1.5.3" data-path="../driver/redis.html">
   
-  <a href="redis.html">
+  <a href="../driver/redis.html">
     
                     
                     Redis
@@ -258,9 +256,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.5.4" data-path="file.html">
+<li class="chapter " data-level="1.5.4" data-path="../driver/file.html">
   
-  <a href="file.html">
+  <a href="../driver/file.html">
     
                     
                     File
@@ -276,9 +274,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6" data-path="../captcha/">
+<li class="chapter " data-level="1.6" data-path="./">
   
-  <a href="../captcha/">
+  <a href="./">
     
                     
                     CAPTCHA
@@ -290,9 +288,9 @@
     <ul class="articles">
       
 
-<li class="chapter " data-level="1.6.1" data-path="../captcha/recaptcha.html">
+<li class="chapter " data-level="1.6.1" data-path="recaptcha.html">
   
-  <a href="../captcha/recaptcha.html">
+  <a href="recaptcha.html">
     
                     
                     Google ReCaptcha
@@ -303,9 +301,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.2" data-path="../captcha/image.html">
+<li class="chapter active" data-level="1.6.2" data-path="image.html">
   
-  <a href="../captcha/image.html">
+  <a href="image.html">
     
                     
                     Image Captcha
@@ -343,7 +341,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >MySQL</a>
+        <a href=".." >Image Captcha</a>
     </h1>
 </div>
 
@@ -358,34 +356,109 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mysql">MySQL</h1>
-<h2 id="shieldondrivermysqldriver"><code>Shieldon\Driver\MysqlDriver</code></h2>
+                                <h1 id="imagecaptcha">ImageCaptcha</h1>
+<h2 id="shieldoncaptchaimagecaptcha"><code>Shieldon\Captcha\ImageCaptcha</code></h2>
 <ul>
-<li><em>param</em> PDO $pdo</li>
-<li><em>param</em> boolean $debug  [default: false]</li>
-<li><em>return</em> self</li>
+<li><em>param</em> array $config</li>
+<li><em>return</em> void</li>
 </ul>
-<p>You have to inject a PDO instance to Shieldon data driver.</p>
-<pre><code class="lang-php">$mysqlDriverInstance = <span class="hljs-keyword">new</span> \Shieldon\Driver\MysqlDriver($pdoInstance);
-</code></pre>
-<p>Example:</p>
-<pre><code class="lang-php">$db = [
-    <span class="hljs-string">&apos;host&apos;</span> =&gt; <span class="hljs-string">&apos;127.0.0.1&apos;</span>,
-    <span class="hljs-string">&apos;dbname&apos;</span> =&gt; <span class="hljs-string">&apos;testdb&apos;</span>,
-    <span class="hljs-string">&apos;user&apos;</span> =&gt; <span class="hljs-string">&apos;root&apos;</span>,
-    <span class="hljs-string">&apos;pass&apos;</span> =&gt; <span class="hljs-string">&apos;sdfaa422kadhd3&apos;</span>,
-    <span class="hljs-string">&apos;charset&apos;</span> =&gt; <span class="hljs-string">&apos;utf8&apos;</span>,
+<pre><code class="lang-php">$config = [
+    <span class="hljs-string">&apos;word_length&apos;</span> =&gt; <span class="hljs-number">6</span>,
 ];
 
-$pdoInstance = <span class="hljs-keyword">new</span> \PDO(
-    <span class="hljs-string">&apos;mysql:host=&apos;</span> . $db[<span class="hljs-string">&apos;host&apos;</span>] . <span class="hljs-string">&apos;;dbname=&apos;</span> . $db[<span class="hljs-string">&apos;dbname&apos;</span>] . <span class="hljs-string">&apos;;charset=&apos;</span> . $db[<span class="hljs-string">&apos;charset&apos;</span>],
-    $db[<span class="hljs-string">&apos;user&apos;</span>],
-    $db[<span class="hljs-string">&apos;pass&apos;</span>]
-);
-
-$shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\MysqlDriver($pdoInstance));
+$captchaInstance = <span class="hljs-keyword">new</span> \Shieldon\Captcha\ImageCaptcha($config);
+$shieldon-&gt;setCaptcha($captchaInstance);
 </code></pre>
-<p>That&apos;s it.</p>
+<h2 id="settings">Settings</h2>
+<p>Default settings:</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>type</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>img_width</td>
+<td>integer</td>
+<td>250</td>
+</tr>
+<tr>
+<td>img_height</td>
+<td>integer</td>
+<td>50</td>
+</tr>
+<tr>
+<td>word_length</td>
+<td>integer</td>
+<td>8</td>
+</tr>
+<tr>
+<td>font_spacing</td>
+<td>integer</td>
+<td>10</td>
+</tr>
+<tr>
+<td>pool</td>
+<td>string</td>
+<td>0123456789abcdefghijklmno<br>pqrstuvwxyzABCDEFGHIJKL<br>MNOPQRSTUVWXYZ</td>
+</tr>
+<tr>
+<td>colors</td>
+<td>array</td>
+<td>see <code>Color</code> settings below.</td>
+</tr>
+</tbody>
+</table>
+<p>Color settings:</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>type</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>background</td>
+<td>array</td>
+<td>[255, 255, 255]</td>
+</tr>
+<tr>
+<td>border</td>
+<td>integer</td>
+<td>[153, 200, 255]</td>
+</tr>
+<tr>
+<td>text</td>
+<td>integer</td>
+<td>[51, 153, 255]</td>
+</tr>
+<tr>
+<td>grid</td>
+<td>integer</td>
+<td>[153, 200, 255]</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="lang-php">$defaults = [
+    <span class="hljs-string">&apos;img_width&apos;</span> =&gt; <span class="hljs-number">250</span>,
+    <span class="hljs-string">&apos;img_height&apos;</span> =&gt; <span class="hljs-number">50</span>,
+    <span class="hljs-string">&apos;word_length&apos;</span> =&gt; <span class="hljs-number">8</span>,
+    <span class="hljs-string">&apos;font_spacing&apos;</span> =&gt; <span class="hljs-number">10</span>,
+    <span class="hljs-string">&apos;pool&apos;</span> =&gt; <span class="hljs-string">&apos;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;</span>,
+    <span class="hljs-string">&apos;colors&apos;</span> =&gt; [
+        <span class="hljs-string">&apos;background&apos;</span> =&gt; [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>],
+        <span class="hljs-string">&apos;border&apos;</span> =&gt; [<span class="hljs-number">153</span>, <span class="hljs-number">200</span>, <span class="hljs-number">255</span>],
+        <span class="hljs-string">&apos;text&apos;</span> =&gt; [<span class="hljs-number">51</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>],
+        <span class="hljs-string">&apos;grid&apos;</span> =&gt; [<span class="hljs-number">153</span>, <span class="hljs-number">200</span>, <span class="hljs-number">255</span>]
+    ]
+];
+</code></pre>
 
                                 
                                 </section>
@@ -413,14 +486,10 @@ $shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Driver">
+                <a href="recaptcha.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Google ReCaptcha">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="sqlite.html" class="navigation navigation-next " aria-label="Next page: SQLite">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -429,7 +498,7 @@ $shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.5.1","depth":2,"next":{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},"previous":{"title":"Driver","level":"1.5","depth":1,"path":"driver/index.md","ref":"driver/index.md","articles":[{"title":"MySQL","level":"1.5.1","depth":2,"path":"driver/mysql.md","ref":"driver/mysql.md","articles":[]},{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},{"title":"Redis","level":"1.5.3","depth":2,"path":"driver/redis.md","ref":"driver/redis.md","articles":[]},{"title":"File","level":"1.5.4","depth":2,"path":"driver/file.md","ref":"driver/file.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"driver/mysql.md","mtime":"2019-05-28T03:19:55.318Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T05:09:07.179Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Image Captcha","level":"1.6.2","depth":2,"previous":{"title":"Google ReCaptcha","level":"1.6.1","depth":2,"path":"captcha/recaptcha.md","ref":"captcha/recaptcha.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"captcha/image.md","mtime":"2019-05-28T03:02:08.862Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T03:20:09.848Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -437,10 +506,6 @@ $shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
