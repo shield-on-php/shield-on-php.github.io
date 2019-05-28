@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-dir=$(dirname $0)
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/bin
+dir=$(dirname "$SCRIPT")
 
 echo ${dir};
 
@@ -8,7 +10,7 @@ echo ${dir};
 gitbook build
 
 
-cp -a ${dir}/_book ${dir}/github_page
+cp -R ${dir}/_book ${dir}/github_page
 
 cd github_page
 git add .
