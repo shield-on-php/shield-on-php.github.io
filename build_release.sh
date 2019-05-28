@@ -10,7 +10,7 @@ echo ${dir};
 gitbook build
 
 
-cp -R ${dir}/_book ${dir}/github_page/
+cp -R ${dir}/_book/* ${dir}/github_page/
 
 cd github_page
 git add .
