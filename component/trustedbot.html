@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Laravel · Shieldon - An anti-scraping PHP Library</title>
+        <title>TrustedBot · Shieldon - An anti-scraping PHP Library</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="wordpress.html" />
+    <link rel="next" href="ip.html" />
     
     
-    <link rel="prev" href="slim.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -475,9 +475,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6" data-path="../component/">
+<li class="chapter " data-level="1.6" data-path="./">
   
-  <a href="../component/">
+  <a href="./">
     
                     
                     Component
@@ -489,9 +489,9 @@
     <ul class="articles">
       
 
-<li class="chapter " data-level="1.6.1" data-path="../component/trustedbot.html">
+<li class="chapter active" data-level="1.6.1" data-path="trustedbot.html">
   
-  <a href="../component/trustedbot.html">
+  <a href="trustedbot.html">
     
                     
                     TrustedBot
@@ -502,9 +502,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.2" data-path="../component/ip.html">
+<li class="chapter " data-level="1.6.2" data-path="ip.html">
   
-  <a href="../component/ip.html">
+  <a href="ip.html">
     
                     
                     IP
@@ -515,9 +515,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.3" data-path="../component/useragent.html">
+<li class="chapter " data-level="1.6.3" data-path="useragent.html">
   
-  <a href="../component/useragent.html">
+  <a href="useragent.html">
     
                     
                     UserAgent
@@ -528,9 +528,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.4" data-path="../component/header.html">
+<li class="chapter " data-level="1.6.4" data-path="header.html">
   
-  <a href="../component/header.html">
+  <a href="header.html">
     
                     
                     Header
@@ -541,9 +541,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.5" data-path="../component/rdns.html">
+<li class="chapter " data-level="1.6.5" data-path="rdns.html">
   
-  <a href="../component/rdns.html">
+  <a href="rdns.html">
     
                     
                     Rdns
@@ -604,9 +604,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.8" data-path="./">
+<li class="chapter " data-level="1.8" data-path="../integration/">
   
-  <a href="./">
+  <a href="../integration/">
     
                     
                     Integration w/ Framework
@@ -618,9 +618,9 @@
     <ul class="articles">
       
 
-<li class="chapter " data-level="1.8.1" data-path="codeigniter.html">
+<li class="chapter " data-level="1.8.1" data-path="../integration/codeigniter.html">
   
-  <a href="codeigniter.html">
+  <a href="../integration/codeigniter.html">
     
                     
                     CodeIgniter
@@ -631,9 +631,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.8.2" data-path="slim.html">
+<li class="chapter " data-level="1.8.2" data-path="../integration/slim.html">
   
-  <a href="slim.html">
+  <a href="../integration/slim.html">
     
                     
                     Slim
@@ -644,9 +644,9 @@
     
 </li>
 
-<li class="chapter active" data-level="1.8.3" data-path="laravel.html">
+<li class="chapter " data-level="1.8.3" data-path="../integration/laravel.html">
   
-  <a href="laravel.html">
+  <a href="../integration/laravel.html">
     
                     
                     Laravel
@@ -657,9 +657,9 @@
     
 </li>
 
-<li class="chapter " data-level="1.8.4" data-path="wordpress.html">
+<li class="chapter " data-level="1.8.4" data-path="../integration/wordpress.html">
   
-  <a href="wordpress.html">
+  <a href="../integration/wordpress.html">
     
                     
                     WordPress
@@ -697,7 +697,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Laravel</a>
+        <a href=".." >TrustedBot</a>
     </h1>
 </div>
 
@@ -712,8 +712,118 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="laravel-framework">Laravel Framework</h1>
-<p>Not yet ready.</p>
+                                <h1 id="trustedbot">TrustedBot</h1>
+<h2 id="shieldoncomponenttrustedbot"><code>Shieldon\Component\TrustedBot</code></h2>
+<ul>
+<li><em>return</em> self</li>
+</ul>
+<pre><code class="lang-php">$robot = <span class="hljs-keyword">new</span> \Shieldon\Component\TrustedBot();
+$shieldon-&gt;setComponent($robot);
+</code></pre>
+<p>Default setting in whitelist.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Rdns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google</td>
+<td>.googlebot.com</td>
+</tr>
+<tr>
+<td>google</td>
+<td>.google.com</td>
+</tr>
+<tr>
+<td>live</td>
+<td>.live.com</td>
+</tr>
+<tr>
+<td>msn</td>
+<td>.msn.com</td>
+</tr>
+<tr>
+<td>ask</td>
+<td>.ask.com</td>
+</tr>
+<tr>
+<td>bing</td>
+<td>.bing.com</td>
+</tr>
+<tr>
+<td>inktomisearch</td>
+<td>.inktomisearch.com</td>
+</tr>
+<tr>
+<td>yahoo</td>
+<td>.yahoo.com</td>
+</tr>
+<tr>
+<td>yahoo</td>
+<td>.yahoo.net</td>
+</tr>
+<tr>
+<td>yandex</td>
+<td>.yandex.com</td>
+</tr>
+<tr>
+<td>yandex</td>
+<td>.yandex.ru</td>
+</tr>
+<tr>
+<td>w3</td>
+<td>.w3.org</td>
+</tr>
+</tbody>
+</table>
+<h3 id="setstrict">setStrict</h3>
+<ul>
+<li><em>param</em> boolean <code>$bool</code> Set true to enble strict mode, false to disable it overwise.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$robot-&gt;setStrict(<span class="hljs-keyword">true</span>);
+</code></pre>
+<h3 id="isallowed">isAllowed</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isAllowed();
+</code></pre>
+<h3 id="isdenied">isDenied</h3>
+<p>(deprecated)</p>
+<h3 id="isgoogle">isGoogle</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isGoogle();
+</code></pre>
+<h3 id="isyahoo">isYahoo</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isYahoo();
+</code></pre>
+<h3 id="isbing">isBing</h3>
+<ul>
+<li><em>return</em> bool</li>
+</ul>
+<pre><code class="lang-php">$result = $robot-&gt;isBing();
+</code></pre>
+<h3 id="additem">addItem</h3>
+<ul>
+<li><em>param</em> string <code>$userAgent</code> Part of user-agent string</li>
+<li><em>param</em> string <code>$rdns</code> IP resolved hostname.</li>
+<li><em>return</em> void</li>
+</ul>
+<pre><code class="lang-php">$robot-&gt;addItem(<span class="hljs-string">&apos;google&apos;</span>, <span class="hljs-string">&apos;.googlebot.com&apos;</span>);
+</code></pre>
+<h2 id="strict-mode">Strict Mode</h2>
+<ul>
+<li>IP resolved hostname and IP address must match.</li>
+</ul>
 
                                 
                                 </section>
@@ -741,12 +851,12 @@
 
             
                 
-                <a href="slim.html" class="navigation navigation-prev " aria-label="Previous page: Slim">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Component">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="wordpress.html" class="navigation navigation-next " aria-label="Next page: WordPress">
+                <a href="ip.html" class="navigation navigation-next " aria-label="Next page: IP">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -757,7 +867,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel","level":"1.8.3","depth":2,"next":{"title":"WordPress","level":"1.8.4","depth":2,"path":"integration/wordpress.md","ref":"integration/wordpress.md","articles":[]},"previous":{"title":"Slim","level":"1.8.2","depth":2,"path":"integration/slim.md","ref":"integration/slim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"integration/laravel.md","mtime":"2019-05-29T04:13:26.633Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-30T17:21:52.474Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TrustedBot","level":"1.6.1","depth":2,"next":{"title":"IP","level":"1.6.2","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},"previous":{"title":"Component","level":"1.6","depth":1,"path":"component/index.md","ref":"component/index.md","articles":[{"title":"TrustedBot","level":"1.6.1","depth":2,"path":"component/trustedbot.md","ref":"component/trustedbot.md","articles":[]},{"title":"IP","level":"1.6.2","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},{"title":"UserAgent","level":"1.6.3","depth":2,"path":"component/useragent.md","ref":"component/useragent.md","articles":[]},{"title":"Header","level":"1.6.4","depth":2,"path":"component/header.md","ref":"component/header.md","articles":[]},{"title":"Rdns","level":"1.6.5","depth":2,"path":"component/rdns.md","ref":"component/rdns.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"component/trustedbot.md","mtime":"2019-05-30T16:36:31.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-30T17:21:52.474Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

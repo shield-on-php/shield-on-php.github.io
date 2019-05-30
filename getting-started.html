@@ -489,7 +489,20 @@
     <ul class="articles">
       
 
-<li class="chapter " data-level="1.6.1" data-path="component/ip.html">
+<li class="chapter " data-level="1.6.1" data-path="component/trustedbot.html">
+  
+  <a href="component/trustedbot.html">
+    
+                    
+                    TrustedBot
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter " data-level="1.6.2" data-path="component/ip.html">
   
   <a href="component/ip.html">
     
@@ -502,12 +515,38 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.2" data-path="component/robot.html">
+<li class="chapter " data-level="1.6.3" data-path="component/useragent.html">
   
-  <a href="component/robot.html">
+  <a href="component/useragent.html">
     
                     
-                    Robot
+                    UserAgent
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter " data-level="1.6.4" data-path="component/header.html">
+  
+  <a href="component/header.html">
+    
+                    
+                    Header
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter " data-level="1.6.5" data-path="component/rdns.html">
+  
+  <a href="component/rdns.html">
+    
+                    
+                    Rdns
             
     </a>
     
@@ -692,10 +731,9 @@ $pdoInstance = <span class="hljs-keyword">new</span> \PDO(<span class="hljs-stri
 $shieldon-&gt;setDriver(<span class="hljs-keyword">new</span> \Shieldon\Driver\SqliteDriver($pdoInstance));
 
 <span class="hljs-comment">// Set core components.</span>
-$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\Ip());
 <span class="hljs-comment">// This compoent will only allow popular search engline.</span>
 <span class="hljs-comment">// Other bots will go into the checking process.</span>
-$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\Robot());
+$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\TrustedBot());
 
 <span class="hljs-comment">// You can ignore this setting if you only use one Shieldon on your web application. This is for multiple instances.</span>
 $shieldon-&gt;setChannel(<span class="hljs-string">&apos;web_project&apos;</span>);
@@ -768,7 +806,7 @@ $result = $shieldon-&gt;run();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.2","depth":1,"next":{"title":"Installation","level":"1.2.1","depth":2,"anchor":"#installation","path":"getting-started.md","ref":"getting-started.md#installation","articles":[]},"previous":{"title":"Shieldon","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"getting-started.md","mtime":"2019-05-29T01:55:42.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T05:47:07.552Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.2","depth":1,"next":{"title":"Installation","level":"1.2.1","depth":2,"anchor":"#installation","path":"getting-started.md","ref":"getting-started.md#installation","articles":[]},"previous":{"title":"Shieldon","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"getting-started.md","mtime":"2019-05-30T16:42:05.034Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-30T17:21:52.474Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

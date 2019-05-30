@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="robot.html" />
+    <link rel="next" href="useragent.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="trustedbot.html" />
     
 
     </head>
@@ -489,7 +489,20 @@
     <ul class="articles">
       
 
-<li class="chapter active" data-level="1.6.1" data-path="ip.html">
+<li class="chapter " data-level="1.6.1" data-path="trustedbot.html">
+  
+  <a href="trustedbot.html">
+    
+                    
+                    TrustedBot
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter active" data-level="1.6.2" data-path="ip.html">
   
   <a href="ip.html">
     
@@ -502,12 +515,38 @@
     
 </li>
 
-<li class="chapter " data-level="1.6.2" data-path="robot.html">
+<li class="chapter " data-level="1.6.3" data-path="useragent.html">
   
-  <a href="robot.html">
+  <a href="useragent.html">
     
                     
-                    Robot
+                    UserAgent
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter " data-level="1.6.4" data-path="header.html">
+  
+  <a href="header.html">
+    
+                    
+                    Header
+            
+    </a>
+    
+
+    
+</li>
+
+<li class="chapter " data-level="1.6.5" data-path="rdns.html">
+  
+  <a href="rdns.html">
+    
+                    
+                    Rdns
             
     </a>
     
@@ -706,13 +745,13 @@ $allowedIps = [
 $ip-&gt;setAllowedList($allowedIps);
 $shieldon-&gt;setComponent($ip);
 </code></pre>
-<h3 id="setallowedip">setAllowedIp</h3>
+<h3 id="setalloweditem">setAllowedItem</h3>
 <ul>
 <li><em>param</em> string <code>$ip</code> Single Ip address</li>
 <li><em>return</em> void</li>
 </ul>
 <pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
-$ip-&gt;setAllowedIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
+$ip-&gt;setAllowedItem(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
 $shieldon-&gt;setComponent($ip);
 </code></pre>
 <h3 id="getallowedlist">getAllowedList</h3>
@@ -739,13 +778,13 @@ $deniedIps = [
 $ip-&gt;setDenieddList($deniedIps);
 $shieldon-&gt;setComponent($ip);
 </code></pre>
-<h3 id="setdeniedip">setDeniedIp</h3>
+<h3 id="setdenieditem">setDeniedItem</h3>
 <ul>
 <li><em>param</em> string <code>$ip</code> Single Ip address</li>
 <li><em>return</em> void</li>
 </ul>
 <pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
-$ip-&gt;setDeniedIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
+$ip-&gt;setDeniedItem(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
 $shieldon-&gt;setComponent($ip);
 </code></pre>
 <h3 id="getdeniedlist">getDeniedList</h3>
@@ -756,15 +795,6 @@ $shieldon-&gt;setComponent($ip);
 $list = $ip-&gt;getDenieddList();
 
 <span class="hljs-comment">// [&apos;123.22.33.44&apos;, &apos;123.22.33.43&apos;, &apos;xxx.xxx.xxx.xxx&apos;]</span>
-</code></pre>
-<h3 id="removeip">removeIp</h3>
-<ul>
-<li><em>param</em> string <code>$ip</code> Single Ip address</li>
-<li><em>param</em> string <code>$type</code> &apos;allow&apos;, &apos;deny&apos;</li>
-<li><em>return</em> void</li>
-</ul>
-<pre><code class="lang-php">$ip = <span class="hljs-keyword">new</span> \Shieldon\Component\Ip();
-$ip-&gt;removeIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
 </code></pre>
 
                                 
@@ -793,12 +823,12 @@ $ip-&gt;removeIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Component">
+                <a href="trustedbot.html" class="navigation navigation-prev " aria-label="Previous page: TrustedBot">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="robot.html" class="navigation navigation-next " aria-label="Next page: Robot">
+                <a href="useragent.html" class="navigation navigation-next " aria-label="Next page: UserAgent">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -809,7 +839,7 @@ $ip-&gt;removeIp(<span class="hljs-string">&apos;123.22.33.44&apos;</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IP","level":"1.6.1","depth":2,"next":{"title":"Robot","level":"1.6.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]},"previous":{"title":"Component","level":"1.6","depth":1,"path":"component/index.md","ref":"component/index.md","articles":[{"title":"IP","level":"1.6.1","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},{"title":"Robot","level":"1.6.2","depth":2,"path":"component/robot.md","ref":"component/robot.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"component/ip.md","mtime":"2019-05-28T08:25:02.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T05:47:07.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IP","level":"1.6.2","depth":2,"next":{"title":"UserAgent","level":"1.6.3","depth":2,"path":"component/useragent.md","ref":"component/useragent.md","articles":[]},"previous":{"title":"TrustedBot","level":"1.6.1","depth":2,"path":"component/trustedbot.md","ref":"component/trustedbot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"component/ip.md","mtime":"2019-05-30T15:48:48.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-30T17:21:52.474Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
