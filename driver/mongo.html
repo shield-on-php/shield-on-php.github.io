@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MySQL · Shieldon - An anti-scraping PHP Library</title>
+        <title>MongoDB · Shieldon - An anti-scraping PHP Library</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sqlite.html" />
+    <link rel="next" href="../component/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="memcache.html" />
     
 
     </head>
@@ -409,7 +409,7 @@
     <ul class="articles">
       
 
-<li class="chapter active" data-level="1.5.1" data-path="mysql.html">
+<li class="chapter " data-level="1.5.1" data-path="mysql.html">
   
   <a href="mysql.html">
     
@@ -474,7 +474,7 @@
     
 </li>
 
-<li class="chapter " data-level="1.5.6" data-path="mongo.html">
+<li class="chapter active" data-level="1.5.6" data-path="mongo.html">
   
   <a href="mongo.html">
     
@@ -714,7 +714,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >MySQL</a>
+        <a href=".." >MongoDB</a>
     </h1>
 </div>
 
@@ -729,34 +729,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mysql">MySQL</h1>
-<h2 id="shieldondrivermysqldriver"><code>Shieldon\Driver\MysqlDriver</code></h2>
-<ul>
-<li><em>param</em> PDO $pdo</li>
-<li><em>param</em> boolean $debug  [default: false]</li>
-<li><em>return</em> self</li>
-</ul>
-<p>You have to inject a PDO instance to Shieldon data driver.</p>
-<pre><code class="lang-php">$mysqlDriverInstance = <span class="hljs-keyword">new</span> \Shieldon\Driver\MysqlDriver($pdoInstance);
-</code></pre>
-<p>Example:</p>
-<pre><code class="lang-php">$db = [
-    <span class="hljs-string">&apos;host&apos;</span> =&gt; <span class="hljs-string">&apos;127.0.0.1&apos;</span>,
-    <span class="hljs-string">&apos;dbname&apos;</span> =&gt; <span class="hljs-string">&apos;testdb&apos;</span>,
-    <span class="hljs-string">&apos;user&apos;</span> =&gt; <span class="hljs-string">&apos;root&apos;</span>,
-    <span class="hljs-string">&apos;pass&apos;</span> =&gt; <span class="hljs-string">&apos;sdfaa422kadhd3&apos;</span>,
-    <span class="hljs-string">&apos;charset&apos;</span> =&gt; <span class="hljs-string">&apos;utf8&apos;</span>,
-];
-
-$pdoInstance = <span class="hljs-keyword">new</span> \PDO(
-    <span class="hljs-string">&apos;mysql:host=&apos;</span> . $db[<span class="hljs-string">&apos;host&apos;</span>] . <span class="hljs-string">&apos;;dbname=&apos;</span> . $db[<span class="hljs-string">&apos;dbname&apos;</span>] . <span class="hljs-string">&apos;;charset=&apos;</span> . $db[<span class="hljs-string">&apos;charset&apos;</span>],
-    $db[<span class="hljs-string">&apos;user&apos;</span>],
-    $db[<span class="hljs-string">&apos;pass&apos;</span>]
-);
-
-$shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\MysqlDriver($pdoInstance));
-</code></pre>
-<p>That&apos;s it.</p>
+                                <h1 id="mongodb">MongoDB</h1>
+<h2 id="shieldondrivermongodriver"><code>Shieldon\Driver\MongoDriver</code></h2>
+<p>Not yet ready.</p>
 
                                 
                                 </section>
@@ -784,12 +759,12 @@ $shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Driver">
+                <a href="memcache.html" class="navigation navigation-prev " aria-label="Previous page: MemCache">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="sqlite.html" class="navigation navigation-next " aria-label="Next page: SQLite">
+                <a href="../component/" class="navigation navigation-next " aria-label="Next page: Component">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -800,7 +775,7 @@ $shieldon-&gt;setDriver( <span class="hljs-keyword">new</span> \Shieldon\Driver\
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.5.1","depth":2,"next":{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},"previous":{"title":"Driver","level":"1.5","depth":1,"path":"driver/index.md","ref":"driver/index.md","articles":[{"title":"MySQL","level":"1.5.1","depth":2,"path":"driver/mysql.md","ref":"driver/mysql.md","articles":[]},{"title":"SQLite","level":"1.5.2","depth":2,"path":"driver/sqlite.md","ref":"driver/sqlite.md","articles":[]},{"title":"Redis","level":"1.5.3","depth":2,"path":"driver/redis.md","ref":"driver/redis.md","articles":[]},{"title":"File","level":"1.5.4","depth":2,"path":"driver/file.md","ref":"driver/file.md","articles":[]},{"title":"MemCache","level":"1.5.5","depth":2,"path":"driver/memcache.md","ref":"driver/memcache.md","articles":[]},{"title":"MongoDB","level":"1.5.6","depth":2,"path":"driver/mongo.md","ref":"driver/mongo.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github","add-js-css"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"add-js-css":{"js":["./my/my.js"],"css":["./my/my.css"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"driver/mysql.md","mtime":"2019-05-28T03:19:55.318Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-10T15:11:20.976Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MongoDB","level":"1.5.6","depth":2,"next":{"title":"Component","level":"1.6","depth":1,"path":"component/index.md","ref":"component/index.md","articles":[{"title":"TrustedBot","level":"1.6.1","depth":2,"path":"component/trustedbot.md","ref":"component/trustedbot.md","articles":[]},{"title":"IP","level":"1.6.2","depth":2,"path":"component/ip.md","ref":"component/ip.md","articles":[]},{"title":"UserAgent","level":"1.6.3","depth":2,"path":"component/useragent.md","ref":"component/useragent.md","articles":[]},{"title":"Header","level":"1.6.4","depth":2,"path":"component/header.md","ref":"component/header.md","articles":[]},{"title":"Rdns","level":"1.6.5","depth":2,"path":"component/rdns.md","ref":"component/rdns.md","articles":[]}]},"previous":{"title":"MemCache","level":"1.5.5","depth":2,"path":"driver/memcache.md","ref":"driver/memcache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github","add-js-css"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"add-js-css":{"js":["./my/my.js"],"css":["./my/my.css"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","gitbook":"*"},"file":{"path":"driver/mongo.md","mtime":"2019-06-10T15:05:42.459Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-10T15:11:20.976Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
