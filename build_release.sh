@@ -10,6 +10,7 @@ echo "${path2}"
 cp -R ${path1} ${path2}
 
 cd ${path2}
+cp redirect.html index.html
 git add .
 git commit -m "update website"
 git push origin master
