@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh_TW" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Getting Started · Shieldon - An anti-scraping PHP Library</title>
+        <title>WordPress Plugin · Shieldon - An anti-scraping PHP Library</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,7 +21,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-add-js-css/957c1547aa3b1644a9f5a790369e2ea1-my.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-add-js-css/88aee821fda8ce41f13b021d0785beb3-my.css">
                 
             
                 
@@ -65,10 +65,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="getting-started.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="integration/wordpress.html" />
     
 
     </head>
@@ -110,7 +108,7 @@
     
 </li>
 
-<li class="chapter active" data-level="1.2" data-path="getting-started.html">
+<li class="chapter " data-level="1.2" data-path="getting-started.html">
   
   <a href="getting-started.html">
     
@@ -692,6 +690,19 @@
     
 </li>
 
+<li class="chapter active" data-level="1.9" data-path="wp-shieldon.html">
+  
+  <a href="wp-shieldon.html">
+    
+                    
+                    WordPress Plugin
+            
+    </a>
+    
+
+    
+</li>
+
 
   
 </ul>
@@ -714,7 +725,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Getting Started</a>
+        <a href="." >WordPress Plugin</a>
     </h1>
 </div>
 
@@ -729,57 +740,57 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="getting-started">Getting Started</h1>
-<p>Shieldon requires at least <code>PHP 7.1</code> to run.</p>
+                                <h1 id="shieldon-in-wordpress">Shieldon in WordPress</h1>
+<p>WP Shieldon is based on <a href="https://github.com/terrylinooo/shieldon" target="_blank">Shieldon</a> library, a PHP library that provides anti-scraping and online session control for your WordPress sites.</p>
+<p>When the users or robots are trying to view many your web pages at a short period of time, they will temporarily get banned. To get unbanned by solving Catpcha. </p>
+<p>You can visit the plugin author - <a href="https://terryl.in" target="_blank">Terry L.</a>&apos;s blog, try reloading the pages several times then you will see how this plugin works.</p>
+<h2 id="requirement">Requirement</h2>
+<ul>
+<li>PHP version &gt; 7.1.0</li>
+<li>WordPress version &gt; 4.0</li>
+</ul>
+<h2 id="download">Download</h2>
+<table>
+<thead>
+<tr>
+<th>source</th>
+<th>download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WordPress</td>
+<td><a href="https://wordpress.org/plugins/wp-shieldon" target="_blank">https://wordpress.org/plugins/wp-shieldon</a></td>
+</tr>
+<tr>
+<td>GitHub repository</td>
+<td><a href="https://github.com/terrylinooo/wp-shieldon/releases" target="_blank">https://github.com/terrylinooo/wp-shieldon/releases</a></td>
+</tr>
+<tr>
+<td>PHP Composer</td>
+<td><code>composer create-project terrylinooo/wp-shieldon wp-shieldon</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="installation">Installation</h2>
-<p>Use PHP Composer:</p>
-<pre><code class="lang-shell">composer require terrylinooo/shieldon
-</code></pre>
-<p>Or, download it and include the Shieldon autoloader.</p>
-<pre><code class="lang-php"><span class="hljs-keyword">require</span> <span class="hljs-string">&apos;Shieldon/src/autoload.php&apos;</span>;
-</code></pre>
-<h2 id="how-to-use">How to Use</h2>
-<p>Here is a full example let you know how Shieldon works.</p>
-<pre><code class="lang-php">$shieldon = <span class="hljs-keyword">new</span> \Shieldon\Shieldon();
-
-<span class="hljs-comment">// Use SQLite as the data driver.</span>
-$dbLocation = APPPATH . <span class="hljs-string">&apos;cache/shieldon.sqlite3&apos;</span>;
-$pdoInstance = <span class="hljs-keyword">new</span> \PDO(<span class="hljs-string">&apos;sqlite:&apos;</span> . $dbLocation);
-$shieldon-&gt;setDriver(<span class="hljs-keyword">new</span> \Shieldon\Driver\SqliteDriver($pdoInstance));
-
-<span class="hljs-comment">// Set core components.</span>
-<span class="hljs-comment">// This compoent will only allow popular search engline.</span>
-<span class="hljs-comment">// Other bots will go into the checking process.</span>
-$shieldon-&gt;setComponent(<span class="hljs-keyword">new</span> \Shieldon\Component\TrustedBot());
-
-<span class="hljs-comment">// You can ignore this setting if you only use one Shieldon on your web application. This is for multiple instances.</span>
-$shieldon-&gt;setChannel(<span class="hljs-string">&apos;web_project&apos;</span>);
-
-<span class="hljs-comment">// Only allow 10 sessions to view current page.</span>
-<span class="hljs-comment">// The defailt expire time is 300 seconds.</span>
-$shieldon-&gt;limitSession(<span class="hljs-number">10</span>);
-
-<span class="hljs-comment">// Set a Captcha servie. For example: Google recaptcha.</span>
-$shieldon-&gt;setCaptcha(<span class="hljs-keyword">new</span> \Shieldon\Captcha\Recaptcha([
-    <span class="hljs-string">&apos;key&apos;</span> =&gt; <span class="hljs-string">&apos;6LfkOaUUAAAAAH-AlTz3hRQ25SK8kZKb2hDRSwz9&apos;</span>,
-    <span class="hljs-string">&apos;secret&apos;</span> =&gt; <span class="hljs-string">&apos;6LfkOaUUAAAAAJddZ6k-1j4hZC1rOqYZ9gLm0WQh&apos;</span>,
-]));
-
-<span class="hljs-comment">// Start protecting your website!</span>
-
-$result = $shieldon-&gt;run();
-
-
-<span class="hljs-keyword">if</span> ($result !== $shieldon::RESPONSE_ALLOW) {
-    <span class="hljs-keyword">if</span> ($shieldon-&gt;captchaResponse()) {
-
-        <span class="hljs-comment">// Unban current session.</span>
-        $shieldon-&gt;unban();
-    }
-    <span class="hljs-comment">// Output the result page with HTTP status code 200.</span>
-    $shieldon-&gt;output(<span class="hljs-number">200</span>);
-}
-</code></pre>
+<ol>
+<li>Upload the plugin files to the <code>/wp-content/plugins/wp-shieldon</code> directory, or install the plugin through the WordPress plugins screen directly.</li>
+<li>Activate the plugin through the <code>Plugins</code> screen in WordPress.</li>
+<li>Go to the <code>WP Shieldon</code> menu and complete all settings.</li>
+</ol>
+<h2 id="screenshots">Screenshots</h2>
+<p>User has been asked for CAPTCHA to continue reading.</p>
+<p><img src="https://i.imgur.com/T78FlVR.png" alt=""></p>
+<p>Setting page.</p>
+<p><img src="https://i.imgur.com/qYbTvb5.png" alt=""></p>
+<p>IP Manager</p>
+<p><img src="https://i.imgur.com/WAEI27e.png" alt=""></p>
+<p><strong><em>Check Out My other WordPress works</em></strong></p>
+<ul>
+<li><a href="https://wordpress.org/plugins/wp-githuber-md/" target="_blank">Markdown Editor</a> - WP Githuber MD - an all in one Markdown editor.</li>
+<li><a href="https://wordpress.org/plugins/seo-search-permalink/" target="_blank">SEO Search Permalink</a> - Static search permalink.</li>
+<li><a href="https://wordpress.org/themes/mynote/" target="_blank">Mynote Theme</a> - Theme for programmers.</li>
+</ul>
 
                                 
                                 </section>
@@ -807,14 +818,10 @@ $result = $shieldon-&gt;run();
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Shieldon">
+                <a href="integration/wordpress.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: WordPress">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="getting-started.html#installation" class="navigation navigation-next " aria-label="Next page: Installation">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -823,7 +830,7 @@ $result = $shieldon-&gt;run();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.2","depth":1,"next":{"title":"Installation","level":"1.2.1","depth":2,"anchor":"#installation","path":"getting-started.md","ref":"getting-started.md#installation","articles":[]},"previous":{"title":"Shieldon","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github","add-js-css"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"add-js-css":{"js":["./my/my.js"],"css":["./my/my.css"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","language":"zh_TW","gitbook":"*"},"file":{"path":"getting-started.md","mtime":"2019-05-30T16:42:05.034Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-18T09:03:45.058Z"},"basePath":".","book":{"language":"zh_TW"}});
+            gitbook.page.hasChanged({"page":{"title":"WordPress Plugin","level":"1.9","depth":1,"previous":{"title":"WordPress","level":"1.8.4","depth":2,"path":"integration/wordpress.md","ref":"integration/wordpress.md","articles":[]},"dir":"ltr"},"config":{"plugins":["layout","toggle-chapters","github","add-js-css"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/terrylinooo/shieldon"},"search":{},"layout":{"footerPath":"_layouts/website_footer.html"},"add-js-css":{"js":["./my/my.js"],"css":["./my/my.css"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Shieldon - An anti-scraping PHP Library","language":"en","gitbook":"*"},"file":{"path":"wp-shieldon.md","mtime":"2019-06-18T09:03:06.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-18T09:03:45.058Z"},"basePath":".","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -841,7 +848,7 @@ $result = $shieldon-&gt;run();
         
     
         
-        <script src="../gitbook/gitbook-plugin-add-js-css/30792dcec85ec7150a0d81385cd93efa-my.js"></script>
+        <script src="../gitbook/gitbook-plugin-add-js-css/a3e0c1fba69ccac37ef1888123768210-my.js"></script>
         
     
         
